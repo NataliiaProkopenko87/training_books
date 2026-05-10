@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #f5f0e8;
+  --card: #fffdf7;
+  --ink: #1a1a1a;
+  --ink-light: #6b6457;
+  --accent: #c84b2f;
+  --accent-hover: #a33a22;
+  --border: #e0d8cc;
+  --shadow: 0 2px 16px rgba(0,0,0,0.07);
+  --radius: 4px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      var(--border) 39px,
+      var(--border) 40px
+    );
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.App {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+/* ── Book Create ── */
+.App > div:first-child {
+  margin-bottom: 56px;
+}
+
+.App > div:first-child h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+.App > div:first-child h1::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 48px;
+  background: var(--accent);
+  margin-top: 8px;
+}
+
+form {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+form:focus-within {
+  box-shadow: 0 4px 24px rgba(200, 75, 47, 0.12);
+  border-color: var(--accent);
+}
+
+form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 0 16px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+form input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 18px 0;
+}
+
+form input[type="text"]::placeholder {
+  color: #c2bab0;
+}
+
+form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s;
+  white-space: nowrap;
+}
+
+form button:hover {
+  background: var(--accent-hover);
+}
+
+/* ── Book List ── */
+.App > div:last-child h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink-light);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--border);
+}
+
+/* ── Book Item ── */
+.App > div:last-child > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+  animation: slideIn 0.25s ease both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.App > div:last-child > div > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+}
+
+.App > div:last-child > div > div h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.App > div:last-child > div > div button {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--ink-light);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.App > div:last-child > div > div button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: #fdf2ef;
+}
