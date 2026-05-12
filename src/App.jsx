@@ -16,7 +16,7 @@ function App() {
       ...books,
       { id: Math.round(Math.random()*1000), title }
     ];
-    console.log(book.id);
+    console.log(updatedBooks.id);
     setBooks(updatedBooks);
   };
 
